@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/5/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-less scss等预处理器calc()智障解析的解决方案" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/less scss等预处理器calc()智障解析的解决方案/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.021Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">height: calc(&quot;100% - 30px&quot;); =&gt; height: calc(&quot;100% - 30%&quot;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">height: calc(~&quot;100% - 30px&quot;); =&gt; height: calc(&quot;100% - 30px&quot;)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/less scss等预处理器calc()智障解析的解决方案/" data-id="cj0tpfbq5000xiod8jfc29ubz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JS中函数执行时的this" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/JS中函数执行时的this/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.020Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>方法调用模式:<br>当一个函数被保存为对象的一个属性时,他就被称为一个方法,用.或者[]的形式调用方法的时候就会被当做一个方法调用:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var num = &apos;window456&apos;;</div><div class="line">var test = &#123;</div><div class="line">  num: &apos;123&apos;,</div><div class="line">  a: function() &#123;</div><div class="line">    console.log(this.num);</div><div class="line">  &#125;</div><div class="line">&#125;		</div><div class="line">test.a(); // &apos;123&apos;</div></pre></td></tr></table></figure>
+<p>方法调用模式在调用的时候this指向自己所属的对象.</p>
+<ul>
+<li>函数调用模式当一个函数并非对象的属性的时候它就被当做函数来调用:<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var num = &apos;window456&apos;;</div><div class="line">var a = function() &#123;</div><div class="line">  console.log(this.num);</div><div class="line">&#125;</div><div class="line">a();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>函数调用模式的this指向全局对象,Douglas认为这是语言设计上的错误,所幸这一错误在ES6的()=&gt;{}中得到了较好的修正.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 预期外</div><div class="line">var num = &apos;window456&apos;;</div><div class="line">var test = &#123;</div><div class="line">  num: &apos;123&apos;,</div><div class="line">  a: function() &#123;</div><div class="line">    var a = function() &#123;</div><div class="line">      console.log(this.num);</div><div class="line">    &#125;</div><div class="line">    a();</div><div class="line">  &#125;</div><div class="line">&#125;		</div><div class="line"></div><div class="line">test.a(); // &apos;window456&apos;</div></pre></td></tr></table></figure>
+<p>我们来看看ES6是怎么做的:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">let num = &apos;window456&apos;;</div><div class="line">let test = &#123;</div><div class="line">  num: &apos;123&apos;,</div><div class="line">  a: function() &#123;</div><div class="line">    let a = () =&gt; &#123;</div><div class="line">      console.log(this.num);</div><div class="line">    &#125;</div><div class="line">    a();</div><div class="line">  &#125;</div><div class="line">&#125;		</div><div class="line"></div><div class="line">test.a(); // 123</div></pre></td></tr></table></figure>
+<p>在ES5中也同样有简单通用的解决方案:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var num = &apos;window456&apos;;</div><div class="line">var test = &#123;</div><div class="line">  num: &apos;123&apos;,</div><div class="line">  a: function() &#123;</div><div class="line">    var _this = this;</div><div class="line">    var a = function() &#123;</div><div class="line">      console.log(_this.num);</div><div class="line">    &#125;</div><div class="line">    a();</div><div class="line">  &#125;</div><div class="line">&#125;		</div><div class="line"></div><div class="line">test.a(); // &apos;123&apos;</div></pre></td></tr></table></figure>
+<p>总结: 需要搞明白this只是一个指针一样的东西,他指向堆内存的内存地址.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/JS中函数执行时的this/" data-id="cj0tpfbpc0007iod8w55no6tb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JS中的值传递和引用传递" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/JS中的值传递和引用传递/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.019Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先看一段代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var o = &#123;</div><div class="line">  a: &apos;123&apos;,</div><div class="line">  b: &apos;456&apos;</div><div class="line">&#125;;</div><div class="line">var _o = o;</div><div class="line">_o.a = &apos;onetwothree&apos;;</div><div class="line">console.log(o); </div><div class="line">console.log(_o);</div><div class="line">console.log(o===_o); // true</div></pre></td></tr></table></figure>
+<p>问两次输出结果?<br>这里两次输出的结果都是一样的,而且对象也是恒等的,说明这两个对象指向同一处地址.</p>
+<p>再看一段代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var num1 = 5;</div><div class="line">var num2 = num1;</div><div class="line">num2 += 10;</div><div class="line">console.log(num1);// 5</div><div class="line">console.log(num2);// 10</div></pre></td></tr></table></figure></p>
+<p>这里的num1 num2是基本数据类型中的string类型,在进行赋值操作的时候并不会仅仅加个指向,而会在内存中开辟一块新的区间存储新的值,num1和num2所储存的值完全是独立的,而当一个变量向另一个变量赋值引用类型的值得时候仅是添加了一个指针,实际上指针指向的都是同一个对象,对任何指向改地址的变量操作都会改变其他指针指向的变量.</p>
+<ul>
+<li>参数<br>首先明确一点:ES中所有函数的参数都是按值传递的,光看这句话可能有点模糊,看下面的代码:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var count = 20;</div><div class="line">function addTen(num) &#123;</div><div class="line">  num += 10;</div><div class="line">  return num;</div><div class="line">&#125;</div><div class="line">var result = addTen(count);</div><div class="line">console.log(count); // 20</div><div class="line">console.log(addTen(count));// 30</div><div class="line">console.log(count);// 20</div></pre></td></tr></table></figure>
+<p>基本类型不必多说,下面我们来看引用类型:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var o = &#123;</div><div class="line">  a: &apos;123&apos;</div><div class="line">&#125;</div><div class="line">function test(_o) &#123;</div><div class="line">  _o.a = &apos;456&apos;;</div><div class="line">  return _o;</div><div class="line">&#125;</div><div class="line">console.log(o);</div><div class="line">console.log(test(o));</div><div class="line">console.log(o);</div></pre></td></tr></table></figure>
+<p>这里的o.a分别为’123’,’456’,’456’,可以看到,作为参数传入后更改属性后原来的o的属性也跟着改变了,那么是否就可以据此说引用类型的参数是引用传递呢?当然是不能的.<br>继续看一段代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function test(_o) &#123;</div><div class="line">  __o = _o;</div><div class="line">  __o.a = &apos;456&apos;;</div><div class="line">  __o = &#123;&#125;;</div><div class="line">  __o.a = &apos;789&apos;;</div><div class="line">&#125;</div><div class="line">var o = &#123;a: &apos;123&apos;&#125;;</div><div class="line">test(o);</div><div class="line">console.log(o);</div></pre></td></tr></table></figure>
+<p>这里的o.a最终的结果是456,这说明即使在函数内部改变了参数的值,但是原始的引用依然未改变,事实上在函数内部重写obj的时候这个变量的引用就是一个局部对象的,这个局部对象会在函数执行完后被立即销毁.<br>可能上面的例子举得还不是很清楚,看了之后会有点不明白,那么再看下面的额代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var o = &#123;</div><div class="line">    a: &apos;123&apos;</div><div class="line">&#125;</div><div class="line">function test(_o) &#123;</div><div class="line">    _o = 0;</div><div class="line">&#125;</div><div class="line">console.log(o);//a:&apos;123&apos;</div><div class="line">test(o);</div><div class="line">console.log(o);//a:&apos;123&apos;</div></pre></td></tr></table></figure></p>
+<p>在执行完test(o)之后o的值依然没变,不会随着赋值的改变而改变,这是为什么呢,因为这里所谓的’值传递’实际上是将堆内存的内存地址赋值过去,对于对象来说永远存在于堆内存中,变量获取的永远都是对象的堆内存的内存地址,但是参数的传递也永远是值传递的方式来进行的,所以这个传递的值就是内存地址,而对obj内部的任意操作或者改动都会直接改动指针指向的内存地址中的数据,这并不影响他值传递的本质,因为只要不对对象内部进行操作而是直接将对象赋值为新的对象(重新赋值一个新的内存地址)或者赋值为一个新的基本数据类型(直接存放在在栈内存中)都不会影响原来对象的值.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/JS中的值传递和引用传递/" data-id="cj0tpfbpf0008iod86uorobsv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JS与IOS之异步加载问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/JS与IOS之异步加载问题/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.018Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line"></div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">    &lt;script src=&quot;js/jquery-2.2.0.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">        var wait = function()&#123;</div><div class="line">            var dtd = $.Deferred();</div><div class="line">            try&#123;</div><div class="line">                nonefuc();</div><div class="line">                dtd.resolve();</div><div class="line">            &#125;catch(e)&#123;</div><div class="line">                alert(&quot;bbb&quot;);</div><div class="line">                dtd.reject();</div><div class="line">            &#125;</div><div class="line">            return dtd.promise();</div><div class="line">        &#125;</div><div class="line">        $.when(wait())</div><div class="line">        .done(</div><div class="line">            function()&#123;</div><div class="line">                    alert(&quot;success&quot;)</div><div class="line">                &#125;</div><div class="line">            )</div><div class="line">        .fail(</div><div class="line">            function()&#123;</div><div class="line">                    alert(&quot;fail&quot;)</div><div class="line">                &#125;</div><div class="line">            );</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>最近遇到一个比较大的麻烦，我要写一个HTML5的活动页同时兼容IOS和安卓，当然，浏览器的兼容肯定是可以的，关键是IOS和安卓的各自的接口函数有大问题，IOS是异步加载的，就是说打开了浏览器之后不一定能找到IOS的方法，而安卓又是同步的，就是说即便是用回调的方式回调IOS也没有办法兼容安卓，假设安卓和IOS的接口实现行为都是一样的，但是因为这坑爹的机制导致页面在两者上展示不一样，而且非但不一样，在IOS上那是完全不能用啊，唯一的笨方法是加定时器延迟接口函数的执行时间，但是定时器也有坑爹的地方，因为我需要接口函数的值，但是定时器并不能达到return的效果，这样只有将接口返回的值加到全局命名空间里面去了，但是这样问题就更大了：有很多地方一进页面就需要命名空间的值，但是这时候他的值是空，但是这些函数并不会等待而是直接取空，这样会发生很多的错误，这个看似简单的问题真的是很头疼，有人推荐我用jquery的deferred,我看了下，这个并不能解决我的问题，因为我的需求是要在客户端里展示一种状态，客户端外展示另一种状态，这个deferred走到接口函数那里依然是空我还是要和客户端回调。就是说不走客户端不行，IOS回调是必须的，或者就加定时器然后所有方法全部延迟，这真的是一个大坑。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/JS与IOS之异步加载问题/" data-id="cj0tpfbp70005iod80o1fmu2t" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JS与FLASH通信" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/JS与FLASH通信/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.017Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">embedSWF: function(swfUrlStr, replaceElemIdStr, widthStr, heightStr, swfVersionStr, xiSwfUrlStr, flashvarsObj, parObj, attObj, callbackFn)</div><div class="line"></div><div class="line">swfUrlStr：（String，必须的）flash地址url,</div><div class="line"></div><div class="line">replaceElemIdStr,：（String，必须的）替换元素的id</div><div class="line"></div><div class="line">widthStr：（String，必须的）flash宽度，类型为字符串</div><div class="line"></div><div class="line">heightStr：（String，必须的）flash高度</div><div class="line"></div><div class="line">swfVersionStr：（String，必须的）指定你发布的SWF对应的Flash Player版本（格式为：major.minor.release）</div><div class="line"></div><div class="line">xiSwfUrlStr：（String，可选的）指定express install SWF的URL并激活Adobe express install</div><div class="line"></div><div class="line">flashvarsObj：（Object，可选的）用name:value对指定你的flashvars</div><div class="line"></div><div class="line">parObj：（Object，可选的）用name:value对指定你的嵌套object元素的params</div><div class="line"></div><div class="line">attObj：（Object，可选的）用name:value对指定object的属性</div><div class="line"></div><div class="line">callbackFn：（Function，可选的）flash加载完成的回调函数，2.2才支持。</div><div class="line"></div><div class="line">callbackFn参数：&#123;success:true/false,id:&quot;object id&quot;,ref:DOM Element&#125;</div><div class="line"></div><div class="line">success, Boolean to indicate whether the embedding of a SWF was success or not</div><div class="line">id, String indicating the ID used in swfobject.registerObject</div><div class="line">ref, HTML object element reference (returns undefined when success=false)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">function load()&#123;</div><div class="line">  var swfVersionStr = &quot;10.0.0&quot;;</div><div class="line">  var params = &#123;&#125;;</div><div class="line">  params.quality = &quot;high&quot;;  </div><div class="line">  params.allowfullscreen = &quot;false&quot;;</div><div class="line">  params.allowscriptaccess = &quot;always&quot;; </div><div class="line">  //params.wmode = &quot;transparent&quot;;</div><div class="line">  swfobject.embedSWF(&quot;flash/MainPage.swf&quot;, &quot;FlashID&quot;, &quot;597&quot;, &quot;416&quot;, swfVersionStr,params);</div><div class="line"> &#125;</div><div class="line"> //调用flash中的方法，&quot;swfId&quot;为html页中swf的id</div><div class="line"> function setValue(o) &#123;</div><div class="line">   </div><div class="line">  thisMovie(&quot;FlashID&quot;).getIds(o);</div><div class="line"> &#125;</div><div class="line">  </div><div class="line"> //搭建js与flash互通的环境</div><div class="line"> function thisMovie(movieName) &#123;</div><div class="line">  if (navigator.appName.indexOf(&quot;Microsoft&quot;) != -1) &#123;</div><div class="line">    </div><div class="line">   return window[movieName];</div><div class="line">  &#125; else &#123;</div><div class="line">    </div><div class="line">   return document[movieName];</div><div class="line">  &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/JS与FLASH通信/" data-id="cj0tpfbp50004iod8ivd25r8t" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JS实现网页进度条的思路" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/JS实现网页进度条的思路/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.016Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>计算各个DIV模块的onload事件，加载完一个之后就+百分之多少，显示到进度条上去。当&gt;90%或者更多的时候就隐藏进度条</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/JS实现网页进度条的思路/" data-id="cj0tpfbpo000fiod8o66ny7u0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JS实现继承" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/JS实现继承/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.014Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Parent(name)&#123;</div><div class="line">    this.name = name || &quot;Adam&quot;</div><div class="line">&#125;</div><div class="line">Father.prototype = &#123;</div><div class="line">    say: function()&#123;</div><div class="line">        console.log(this.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">function Child(name)&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">inherit(Child,Parent);</div></pre></td></tr></table></figure>
+<p>这段代码中的inherit功能是让子元素Child继承父元素Parent的方法，需要自己实现，下面讲讲几种inherit的实现方法</p>
+<ul>
+<li>默认模式<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function inherit(C,P)&#123;</div><div class="line">    C.prototype = new p();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这是最常用的，用new p()构造一个对象并将该对象赋值给C的原型，这样C就从P的示例中获取了他的功能。<br>此时C.prototype拥有了和P实力完全一样的obj，这时候：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var kid = new Child();</div><div class="line">kid.say();//&quot;Adam&quot;</div></pre></td></tr></table></figure></p>
+<p>缺点：可能会继承不必要的属性，并且不能通过传参来更改属性值，只能不断的更改父元素，非常麻烦。</p>
+<ul>
+<li></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/JS实现继承/" data-id="cj0tpfbpl000biod8w46f9bc3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JS全屏2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/JS全屏2/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.007Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>fullscreen API 接口<br>属性1：fullscreenElement 该属性返回当前处于全屏模式的DOM元素。</p>
+<p>属性2：fullscreenEnabled 该属性返回当前 document 是否进入了可以请求全屏模式的状态。</p>
+<p>方法1：requestFullscreen() 请求进入全屏模式。</p>
+<p>方法2：exitFullscreen() 退出全屏模式。</p>
+<p>事件1：fullscreenchange 进入/退出全屏模式切换时会触发。</p>
+<p>事件2：fullscreenerror 进入/退出全屏模式失败时会触发。</p>
+<p>由于fullscreen API 存在浏览器兼容性问题，所以我们在使用的时候需要进行跨浏览器处理，参考代码：</p>
+<p>跨浏览器返回正处于全屏的元素</p>
+<p>function fullscreenElement(){</p>
+<p>var fullscreenEle = document.fullscreenElement ||</p>
+<p>document.mozFullScreenElement ||</p>
+<p>document.webkitFullscreenElement;</p>
+<p>//注意：要在用户授权全屏后才能获取全屏的元素，否则 fullscreenEle为null</p>
+<p>console.log(“全屏元素：”+fullscreenEle);</p>
+<p>return fullscreenEle;</p>
+<p>}</p>
+<p>跨浏览器返回当前 document 是否进入了可以请求全屏模式的状态</p>
+<p>function fullscreenEnable(){</p>
+<p>var isFullscreen = document.fullscreenEnabled ||</p>
+<p>window.fullScreen ||</p>
+<p>document.webkitIsFullScreen ||</p>
+<p>document.msFullscreenEnabled;</p>
+<p>//注意：要在用户授权全屏后才能准确获取当前的状态</p>
+<p>if(isFullscreen){</p>
+<p>console.log(‘全屏模式’);</p>
+<p>}else{</p>
+<p>console.log(‘非全屏模式’);</p>
+<p>}</p>
+<p>}</p>
+<p>跨浏览器发动全屏</p>
+<p>function lanchFullscreen(element){</p>
+<p>if(element.requestFullscreen){</p>
+<p>element.requestFullscreen();</p>
+<p>}</p>
+<p>else if(element.mozRequestFullScreen){</p>
+<p>element.mozRequestFullScreen();</p>
+<p>}</p>
+<p>else if(element.msRequestFullscreen){</p>
+<p>element.msRequestFullscreen();</p>
+<p>}</p>
+<p>else if(element.webkitRequestFullscreen){</p>
+<p>element.webkitRequestFullScreen();</p>
+<p>}</p>
+<p>}</p>
+<p>跨浏览器退出全屏</p>
+<p>function exitFullscreen(){</p>
+<p>if(document.exitFullscreen){</p>
+<p>document.exitFullscreen();</p>
+<p>}</p>
+<p>else if(document.mozCancelFullScreen){</p>
+<p>document.mozCancelFullScreen();</p>
+<p>}</p>
+<p>else if(document.msExitFullscreen){</p>
+<p>document.msExiFullscreen();</p>
+<p>}</p>
+<p>else if(document.webkitCancelFullScreen){</p>
+<p>document.webkitCancelFullScreen();</p>
+<p>}</p>
+<p>}</p>
+<p>各浏览器fullscreenchange 事件处理</p>
+<p>document.addEventListener(‘fullscreenchange’, function(){ /<em>code</em>/ });</p>
+<p>document.addEventListener(‘webkitfullscreenchange’, function(){ /<em>code</em>/});</p>
+<p>document.addEventListener(‘mozfullscreenchange’, function(){ /<em>code</em>/});</p>
+<p>document.addEventListener(‘MSFullscreenChange’, function(){ /<em>code</em>/});</p>
+<p>各浏览器fullscreenerror 事件处理</p>
+<p>document.addEventListener(‘fullscreenerror’, function(){ /<em>code</em>/ });</p>
+<p>document.addEventListener(‘webkitfullscreenerror’, function(){ /<em>code</em>/});</p>
+<p>document.addEventListener(‘mozfullscreenerror’, function(){ /<em>code</em>/);</p>
+<p>document.addEventListener(‘MSFullscreenError’, function(){ /<em>code</em>/ });</p>
+<p>跨浏览器全屏模式下样式代码</p>
+<p>:-webkit-full-screen { }</p>
+<p>:-moz-full-screen { }</p>
+<p>:-ms-fullscreen { }</p>
+<p>:fullscreen { }<br>// Webkit-base: element.onwebkitfullscreenchange  </p>
+<p>// Firefox: element.onmozfullscreenchange  </p>
+<p>// W3C Method:  </p>
+<p>element.addEventListener(‘fullscreenchange’, function(e) {  </p>
+<p>if (document.fullScreen) {                     // document.webkitIsFullScreen  </p>
+<p>/<em> make it look good for fullscreen </em>/  </p>
+<p>} else {  </p>
+<p>/<em> return to the normal state in page </em>/  </p>
+<p>}  </p>
+<p>}, true);  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/JS全屏2/" data-id="cj0tpfbph0009iod8ynwjfebj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JS模块化编程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/JS模块化编程/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.006Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="在我接触编程之前就听说过模块化了-那时候对模块化的理解还仅仅限于这三个字上面-后来接触到了编程之后不断地的听过这个名词-显然-许多后端语言想实现模块化非常容易-甚至我想不出非模块化的写法-但是对于在浏览器中运行的ES5版本的JavaScript来说模块化的概念显然很模糊-而对于传统的轻量级网页来说又不是那么的必要-所以很多前端工程师并不知道要怎么对页面进行模块化-如何做这件事情-幸运的是-随着HTML5技术的发展-网站所承载的功能的增多-gulp-webpack等工具的流行-前端模块化也变得越来越明晰了"><a href="#在我接触编程之前就听说过模块化了-那时候对模块化的理解还仅仅限于这三个字上面-后来接触到了编程之后不断地的听过这个名词-显然-许多后端语言想实现模块化非常容易-甚至我想不出非模块化的写法-但是对于在浏览器中运行的ES5版本的JavaScript来说模块化的概念显然很模糊-而对于传统的轻量级网页来说又不是那么的必要-所以很多前端工程师并不知道要怎么对页面进行模块化-如何做这件事情-幸运的是-随着HTML5技术的发展-网站所承载的功能的增多-gulp-webpack等工具的流行-前端模块化也变得越来越明晰了" class="headerlink" title="在我接触编程之前就听说过模块化了,那时候对模块化的理解还仅仅限于这三个字上面,后来接触到了编程之后不断地的听过这个名词,显然,许多后端语言想实现模块化非常容易,甚至我想不出非模块化的写法,但是对于在浏览器中运行的ES5版本的JavaScript来说模块化的概念显然很模糊,而对于传统的轻量级网页来说又不是那么的必要.所以很多前端工程师并不知道要怎么对页面进行模块化,如何做这件事情,幸运的是,随着HTML5技术的发展,网站所承载的功能的增多,gulp,webpack等工具的流行,前端模块化也变得越来越明晰了."></a>在我接触编程之前就听说过模块化了,那时候对模块化的理解还仅仅限于这三个字上面,后来接触到了编程之后不断地的听过这个名词,显然,许多后端语言想实现模块化非常容易,甚至我想不出非模块化的写法,但是对于在浏览器中运行的ES5版本的JavaScript来说模块化的概念显然很模糊,而对于传统的轻量级网页来说又不是那么的必要.所以很多前端工程师并不知道要怎么对页面进行模块化,如何做这件事情,幸运的是,随着HTML5技术的发展,网站所承载的功能的增多,gulp,webpack等工具的流行,前端模块化也变得越来越明晰了.</h1><ul>
+<li>什么是模块化?</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/JS模块化编程/" data-id="cj0tpfbpl000ciod8uddjz6f4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JS合并多个对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/JS合并多个对象/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.005Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">        var a = &#123;</div><div class="line">            a0 : &quot;a0&quot;,</div><div class="line">            a1 : &quot;a1&quot;,</div><div class="line">            a2 : &quot;a2&quot;,</div><div class="line">        &#125;</div><div class="line">        var b = &#123;</div><div class="line">            a0 : &quot;b0&quot;,</div><div class="line">            b0 : &quot;b0&quot;,</div><div class="line">            b1: &quot;b1&quot;,</div><div class="line">        &#125;</div><div class="line">        function merged()&#123;</div><div class="line">            for(var item in b)&#123;</div><div class="line">                a[item]=b[item];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>代码如上</p>
+<p>到了ES6中已经有了更加完善的解决方案，详细参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" target="_blank" rel="external">Object.assign()</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/JS合并多个对象/" data-id="cj0tpfbpj000aiod864nqadmp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">__('next') &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/28/字符画/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/在控制台输出不一样的log/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/有时间要实现的几个库/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/用JS更改CSSkeyframes(关键帧)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/移动端字体以及页面大小比例问题/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

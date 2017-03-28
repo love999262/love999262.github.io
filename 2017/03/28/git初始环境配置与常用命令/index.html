@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近重装了系统，git的初始环境配置又得从网上找，挺麻烦的，干脆记一下以免以后再次遇到这种情况。首先去git官网下载git后安装git bash，这一步没啥说的。然后打开git bash 输入12$ git config --global user.name &amp;quot;Sun Yuguang&amp;quot;$ git config --global user.email &amp;quot;sun87959">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/03/28/git初始环境配置与常用命令/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近重装了系统，git的初始环境配置又得从网上找，挺麻烦的，干脆记一下以免以后再次遇到这种情况。首先去git官网下载git后安装git bash，这一步没啥说的。然后打开git bash 输入12$ git config --global user.name &amp;quot;Sun Yuguang&amp;quot;$ git config --global user.email &amp;quot;sun87959">
+<meta property="og:updated_time" content="2017-03-28T15:28:52.952Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="最近重装了系统，git的初始环境配置又得从网上找，挺麻烦的，干脆记一下以免以后再次遇到这种情况。首先去git官网下载git后安装git bash，这一步没啥说的。然后打开git bash 输入12$ git config --global user.name &amp;quot;Sun Yuguang&amp;quot;$ git config --global user.email &amp;quot;sun87959">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-git初始环境配置与常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/git初始环境配置与常用命令/" class="article-date">
+  <time datetime="2017-03-28T15:30:09.989Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近重装了系统，git的初始环境配置又得从网上找，挺麻烦的，干脆记一下以免以后再次遇到这种情况。<br>首先去git官网下载git后安装git bash，这一步没啥说的。<br>然后打开git bash 输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;Sun Yuguang&quot;</div><div class="line">$ git config --global user.email &quot;sun87959012@hotmail.com&quot;</div></pre></td></tr></table></figure></p>
+<p>这两步是设置用户名和邮箱，没啥用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C &quot;sun87959012@hotmail.com&quot;</div></pre></td></tr></table></figure></p>
+<p>输入后连续回车<br>这一步是生成SSH密钥，有用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd ~/.ssh</div><div class="line">$ ll</div></pre></td></tr></table></figure></p>
+<p>查看是否存在目录<br>最后得到了两个文件：id_rsa和id_rsa.pub<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">将id_rsa.pub文件里的内容拷贝出来</div><div class="line">clip &lt; ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure></p>
+<p>粘贴到github网站上就可以了</p>
+<p>测试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh git@github.com</div></pre></td></tr></table></figure></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --global credential.helper store</div></pre></td></tr></table></figure>
+<p>git push免密码的命令</p>
+<hr>
+<p>git 查看所有远端分支：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -a</div></pre></td></tr></table></figure></p>
+<p>git获取远端分支:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git fetch origin branchname / git checkout -b branchname origin/branchname</div></pre></td></tr></table></figure></p>
+<p>git 删除本地分支:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -d/D(force)</div></pre></td></tr></table></figure></p>
+<p>git 查看版本信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git log</div></pre></td></tr></table></figure></p>
+<p>git 比较差异<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git diff masterA masterB</div></pre></td></tr></table></figure></p>
+<p>git 丢弃所有未提交<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash</div></pre></td></tr></table></figure></p>
+<p>git 回退到上个版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset --hard HEAD^</div></pre></td></tr></table></figure></p>
+<p>git 回退到某个特定版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset --hard commitNum</div></pre></td></tr></table></figure></p>
+<p>git 更新分支信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git fetch origin --prune / git fetch</div></pre></td></tr></table></figure></p>
+<p>git 查看所有分支信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -a</div></pre></td></tr></table></figure></p>
+<p>git 删除远程分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -r -d origin/branch-name  /  git push origin :branch-name</div></pre></td></tr></table></figure></p>
+<p>git reset<br>版本回退<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset --hard 版本号</div></pre></td></tr></table></figure></p>
+<p>绿字变红字(撤销add)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset HEAD fileName</div></pre></td></tr></table></figure></p>
+<p>红字变无 (撤销没add修改)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -- fileName / stash</div></pre></td></tr></table></figure></p>
+<p>git 强制推送到远端分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push -f origin branchname</div></pre></td></tr></table></figure></p>
+<p>git 重命名本地分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -m oldbranchname newbranchname</div></pre></td></tr></table></figure></p>
+<p>git push设置默认分支为当前分支（不用每次都输分支名）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --global push.default &quot;current&quot;</div></pre></td></tr></table></figure></p>
+<p>git 修改提交的注释<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit --amend</div></pre></td></tr></table></figure></p>
+<p>git 设置缓存大小<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --global http.postBuffer 524288000</div></pre></td></tr></table></figure></p>
+<p>git 去除ADD提醒<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">git config core.autocrlf false</div></pre></td></tr></table></figure></p>
+<p>git 以提交新版本的方式回退到制定的版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git revert HEAD/commit</div></pre></td></tr></table></figure></p>
+<h1 id="首先从远端仓库拉下git仓库："><a href="#首先从远端仓库拉下git仓库：" class="headerlink" title="首先从远端仓库拉下git仓库："></a>首先从远端仓库拉下git仓库：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone url</div></pre></td></tr></table></figure>
+<h1 id="然后查看远端所有分支："><a href="#然后查看远端所有分支：" class="headerlink" title="然后查看远端所有分支："></a>然后查看远端所有分支：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -a</div></pre></td></tr></table></figure>
+<h1 id="找到需要开发的版本分支之后将其拉取到本地："><a href="#找到需要开发的版本分支之后将其拉取到本地：" class="headerlink" title="找到需要开发的版本分支之后将其拉取到本地："></a>找到需要开发的版本分支之后将其拉取到本地：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b branchName origin/branchname</div></pre></td></tr></table></figure>
+<h1 id="在版本分支上开新的功能分支："><a href="#在版本分支上开新的功能分支：" class="headerlink" title="在版本分支上开新的功能分支："></a>在版本分支上开新的功能分支：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b branchName //0.9.6(版本分支名可有可无，只要当前HEAD分支是版本分支即可)</div></pre></td></tr></table></figure>
+<h1 id="新的功能分支上完成对应功能的开发后提交"><a href="#新的功能分支上完成对应功能的开发后提交" class="headerlink" title="新的功能分支上完成对应功能的开发后提交"></a>新的功能分支上完成对应功能的开发后提交</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add -a</div><div class="line">git commit -m &apos;add some feature&apos;</div><div class="line">git push</div></pre></td></tr></table></figure>
+<h1 id="等待大佬合并功能后删除该分支并进行下次功能的开发"><a href="#等待大佬合并功能后删除该分支并进行下次功能的开发" class="headerlink" title="等待大佬合并功能后删除该分支并进行下次功能的开发"></a>等待大佬合并功能后删除该分支并进行下次功能的开发</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -d</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/git初始环境配置与常用命令/" data-id="cj0tpfbpy000riod855nometn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/28/git将已存在的本地分支推送到远端仓库的方法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/28/git撤销回滚/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/28/字符画/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/在控制台输出不一样的log/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/有时间要实现的几个库/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/用JS更改CSSkeyframes(关键帧)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/移动端字体以及页面大小比例问题/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

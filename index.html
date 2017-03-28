@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-字符画" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/字符画/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.120Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>该功能以娱乐练手为主，不限于具体的语言，只谈思想。如果一定说哪个语言比较容易实现的话个人认为是python的PIL。<br>下面的字符串是一个比较好的灰度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">MNHQ$OC?7&gt;!:-;.</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$@B%8&amp;WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1&#123;&#125;[]?-_+~&lt;&gt;i!lI;:,\&quot;^`&apos;.</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"># import PIL</div><div class="line">from PIL import Image</div><div class="line">import os</div><div class="line"></div><div class="line"># MNHQ$OC?7&gt;!:-;.</div><div class="line">grayscale = list(&quot;$@B%8&amp;WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1&#123;&#125;[]?-_+~&lt;&gt;i!lI;:,\&quot;^`&apos;.&quot;)</div><div class="line">count = len(grayscale)</div><div class="line"># transfer image url</div><div class="line">img = Image.open(&apos;/Users/bilibili/Desktop/111.jpg&apos;).resize((150, 50))</div><div class="line">print(img)</div><div class="line">def getGray(imgurl):</div><div class="line">    # image -&gt; convert(&apos;L&apos;)</div><div class="line">    bah = imgurl.convert(&apos;L&apos;)</div><div class="line">    graylist = &apos;&apos;</div><div class="line">    for h in range(bah.size[1]):</div><div class="line">        for w in range(bah.size[0]):</div><div class="line">            # bah.show()</div><div class="line">            _gray = bah.getpixel((w, h))</div><div class="line">            graylist = graylist + grayscale[int(_gray / (256 / (count)))]</div><div class="line">        graylist = graylist + &apos;\r\n&apos;</div><div class="line">    return graylist</div><div class="line"></div><div class="line">tmp = open(&apos;tmp.txt&apos;, &apos;w&apos;)</div><div class="line">tpl = getGray(img)</div><div class="line">tmp.write(tpl)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/字符画/" data-id="cj0tpfbqk001fiod8d07c92ql" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-在控制台输出不一样的log" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/在控制台输出不一样的log/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.119Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>%c-&gt;占位符, 第二个参数写CSS代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(&quot;%c3D Text&quot;,&quot; text-shadow: 0 1px 0 #ccc,0 2px 0 #c9c9c9,0 3px 0 #bbb,0 4px 0 #b9b9b9,0 5px 0 #aaa,0 6px 1px rgba(0,0,0,.1),0 0 5px rgba(0,0,0,.1),0 1px 3px rgba(0,0,0,.3),0 3px 5px rgba(0,0,0,.2),0 5px 10px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.2),0 20px 20px rgba(0,0,0,.15);font-size:5em&quot;)</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/在控制台输出不一样的log/" data-id="cj0tpfbqh001ciod88heqdg8l" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-有时间要实现的几个库" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/有时间要实现的几个库/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.118Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>移动端手势库。</li>
+<li><del>获取URL参数的库函数。</del></li>
+<li>获取cookie的库函数。</li>
+<li>轮播图的库。</li>
+<li>用JS实现marquee库。</li>
+<li>图片处理库（HTML5FILE&gt;CANVAS）。</li>
+<li>表单验证库。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/有时间要实现的几个库/" data-id="cj0tpfbqn001iiod8a7a6y4q8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-用JS更改CSSkeyframes(关键帧)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/用JS更改CSSkeyframes(关键帧)/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.116Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@keyframes cssKey&#123;</div><div class="line">  0%&#123;</div><div class="line">    top:0;</div><div class="line">  &#125;100%&#123;</div><div class="line">    top:100%;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>看上面的代码，这是CSSanimation动画形如(    /<em> animation: ulLoop 5s linear 0s infinite alternate; </em>/)中定义关键帧的基本形式，一般来说keyframes都是写死数值不需要更改了的，但是就是有那么几个需求需要根据情况动态的更改关键帧，那么该怎么改呢？用 document.styleSheets属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.styleSheets[1].insertRule(&quot;@-webkit-keyframes ulLoop &#123;0% &#123;-webkit-transform:translateY(-100%);transform:translateY(-100%);&#125;100% &#123;-webkit-transform:translateY(&quot;+$(&quot;.l4-ul&quot;).height()+&quot;px);transform:translateY(&quot;+$(&quot;.l4-ul&quot;).height()+&quot;px);&#125;&#125;&quot;, 0);</div></pre></td></tr></table></figure></p>
+<p>上面这段代码表示在第二个样式表的第一项中添加”@-webkit-keyframes ulLoop {0% {-webkit-transform:translateY(-100%);transform:translateY(-100%);}100% {-webkit-transform:translateY(“+$(“.l4-ul”).height()+”px);transform:translateY(“+$(“.l4-ul”).height()+”px);}}”这么一段代码，还有addRule()，removeRule(),等方法可以调用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/用JS更改CSSkeyframes(关键帧)/" data-id="cj0tpfbqo001kiod84irh4ciu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-移动端字体以及页面大小比例问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/移动端字体以及页面大小比例问题/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.115Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前做过一次移动端，苦于字太小，只好尽量把字号写大，后来想起以前看过一次用meat设置禁止缩放这样在PC上写16PX和在手机上的16PX效果相当，又研究了微博等网站的手机端页面：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在iPhone的浏览器中页面将以原始大小显示，不允许缩放。  </div><div class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;&gt;   </div><div class="line"> </div><div class="line">width - viewport的宽度 height - viewport的高度   </div><div class="line">initial-scale - 初始的缩放比例  </div><div class="line">minimum-scale - 允许用户缩放到的最小比例   </div><div class="line">maximum-scale - 允许用户缩放到的最大比例  </div><div class="line">user-scalable - 用户是否可以手动缩放  </div><div class="line"></div><div class="line"></div><div class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&quot;&gt;</div><div class="line">    &lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;    </div><div class="line">    &lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black-translucent&quot; /&gt;</div><div class="line">    &lt;meta name=&quot;format-detection&quot; content=&quot;telephone=yes&quot;/&gt;</div><div class="line">    &lt;meta name=&quot;msapplication-tap-highlight&quot; content=&quot;no&quot; /&gt;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/移动端字体以及页面大小比例问题/" data-id="cj0tpfbqp001liod8qmrzq2li" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-移动端触摸事件1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/移动端触摸事件1/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.113Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原本在移动端上要实现点击很简单，只要click就可以了，但是借了同事的IOS试了下好像是没有效果，后来翻了翻资料，touchstart/move/end这几个事件好像就是IOS引入的，不知道和这个有没有关系，虽然说用touchend代替click是可以实现兼容，但是毕竟不完美：在手拿起的那一刻不论你的手停在哪里都会算一次点击，而点击事件的点击的X和Y轴在手落下的落点和拿起的时候完全一样才触发，于是写了个兼容事件，这样就可以兼容IOS和安卓浏览器的点击事件了，其实更加麻烦一点的拖动在这个基础上改一改也可以实现的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">var global = &#123;</div><div class="line">    op: &#123;</div><div class="line">        x: 0,</div><div class="line">        y: 0</div><div class="line">    &#125;,</div><div class="line">    ed: &#123;</div><div class="line">        x: 0,</div><div class="line">        y: 0</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">function touchListener(ev) &#123;</div><div class="line">    switch (event.type) &#123;</div><div class="line">        case &quot;touchstart&quot;:</div><div class="line">            console.log(ev);</div><div class="line">            global.op.x = event.touches[0].clientX;</div><div class="line">            global.op.y = event.touches[0].clientY;</div><div class="line">            break;</div><div class="line">        case &quot;touchend&quot;:</div><div class="line">            global.ed.x = event.changedTouches[0].clientX;</div><div class="line">            global.ed.y = event.changedTouches[0].clientY;</div><div class="line">            break;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">document.addEventListener(&quot;touchstart&quot;, touchListener, false);</div><div class="line">document.addEventListener(&quot;touchend&quot;, touchListener, false);</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/移动端触摸事件1/" data-id="cj0tpfbqq001niod8ws45mo3k" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-移动端触摸事件0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/移动端触摸事件0/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.108Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原本在移动端上要实现点击很简单，只要click就可以了，但是借了同事的IOS试了下好像是没有效果，后来翻了翻资料，<br>touchstart/move/end这几个事件好像就是IOS引入的，不知道和这个有没有关系，虽然说用touchend代替click是可以实现兼容，<br>但是毕竟不完美：在手拿起的那一刻不论你的手停在哪里都会算一次点击，而点击事件的点击的X和Y轴在手落下的落点和拿起的时候完全一样才触发，<br>于是写了个兼容事件，这样就可以兼容IOS和安卓浏览器的点击事件了，其实更加麻烦一点的拖动在这个基础上改一改也可以实现的。</p>
+<pre><code>
+var global = {
+    op: {
+        x: 0,
+        y: 0
+    },
+    ed: {
+        x: 0,
+        y: 0
+    }
+};
+function touchListener(ev) {
+    switch (event.type) {
+        case &quot;touchstart&quot;:
+            console.log(ev);
+            global.op.x = event.touches[0].clientX;
+            global.op.y = event.touches[0].clientY;
+            break;
+        case &quot;touchend&quot;:
+            global.ed.x = event.changedTouches[0].clientX;
+            global.ed.y = event.changedTouches[0].clientY;
+            break;
+    }
+}
+document.addEventListener(&quot;touchstart&quot;, touchListener, false);
+document.addEventListener(&quot;touchend&quot;, touchListener, false);
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/移动端触摸事件0/" data-id="cj0tpfbqr001piod8prmizu5i" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-一种防止从undefined中取值报TypeError错误的方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/一种防止从undefined中取值报TypeError错误的方法/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.107Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line">  a: &apos;123&apos;</div><div class="line">&#125;</div><div class="line">obj.b._son</div></pre></td></tr></table></figure>
+<p>这样会报Uncaught TypeError: Cannot read property ‘_son’ of undefined错可以利用&amp;&amp;短路的特性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">obj.b &amp;&amp; obj.b._son</div></pre></td></tr></table></figure></p>
+<p>返回undefined,虽然是undefined但是不会报错了,也不用写难看的try catch语句,挺好的.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/一种防止从undefined中取值报TypeError错误的方法/" data-id="cj0tpfbqe0018iod8gpuzncw5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-新生成的元素事件绑定的问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/新生成的元素事件绑定的问题/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.106Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">(function() &#123;</div><div class="line">    $.ajax(&#123;</div><div class="line">        url:&quot;http://112.74.114.37:9090/yanjiuyuan/content/listByCategoryId.do?categoryId=1&quot;,</div><div class="line">        success:function(response)&#123;</div><div class="line">            resp = response;</div><div class="line">            $(&quot;#select&quot;).html(&quot;&quot;);</div><div class="line">            for(var i = 0 ; i &lt; 4; i++)&#123;</div><div class="line">                $(&quot;#select&quot;).append(&apos;&lt;li class=&quot;img-group&quot; id=&quot;imgId&apos;+i+&apos;&quot;&gt;&lt;img src=&quot;../posters/&apos;+resp[i].pic1+&apos;&quot;&gt;&lt;div&gt;&apos;+resp[i].title+&apos;&lt;/div&gt;&lt;/li&gt;&apos;);</div><div class="line">                $(&quot;#imgId&quot;+i).bind(&quot;click&quot;,hrefs);</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">    &#125;);</div><div class="line">&#125;)();</div><div class="line">function hrefs()&#123;</div><div class="line">    window.location.href = &quot;http://112.74.114.37:9090/yanjiuyuan/yanjiuyuan/mobile/cinema.html?id=&quot; + ($(this).index());                </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>应该算是最初级的问题了，初级到做前端只要有三个月必然碰到的问题，我做了一年了，说一下问题吧：用JS或者是其它方法新生成的元素必须要给他进行事件注册才能生效，否则无效，以前碰到过今天又碰到了，坑了我好几个小时，一开始我使用jquery的delegate，但是有诸多的坑：delegate不能取index()（总是取document的index()也就是0），delegate click,注册的话需要双击才行（第一次注册事件，第二次事件绑定）然后我想到了闭包，依旧不行，因为JS生成的元素必须注册后才能用，我知道最好的方法是在节点被创造出来之后就给他注册事件，我也知道把onclick=function(){}写进html中的这种七八年前的做法，但是这对我来说不够美观，也没有解决问题，我也想到了事件委托，但是依然有坑，毕竟不能取到index值，唯一折中的办法就是每次生成元素后在后面立刻给他绑定方法，但是这种方法依旧不够完美，我要为他添加多余的ID，我觉得正统的方法应该不是这样的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/新生成的元素事件绑定的问题/" data-id="cj0tpfbqm001hiod8597tahak" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-拖拽(X轴)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/拖拽(X轴)/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.093Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line"></div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">    #slider &#123;</div><div class="line">        width: 100px;</div><div class="line">        height: 100px;</div><div class="line">        position: absolute;</div><div class="line">        background-color: #000;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    #slider2 &#123;</div><div class="line">        width: 100px;</div><div class="line">        height: 100px;</div><div class="line">        position: absolute;</div><div class="line">        top: 500px;</div><div class="line">        left: 500px;</div><div class="line">        background-color: red;</div><div class="line">    &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">    &lt;div id=&quot;slider&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;div id=&quot;slider2&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">    var _$ = function(idName) &#123;</div><div class="line">        return document.querySelector(idName);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function draggable(node) &#123;</div><div class="line">        var isDragging = undefined;</div><div class="line">        document.addEventListener(&quot;mousedown&quot;, function(e) &#123;</div><div class="line">            if (e.target.id == node.id) &#123;</div><div class="line">                isDragging = 1;</div><div class="line">                console.log(e);</div><div class="line">                console.log(e.clientX + &quot;x&quot;);</div><div class="line">                console.log(e.clientY + &quot;y&quot;);</div><div class="line">                console.log(isDragging);</div><div class="line">            &#125;</div><div class="line">        &#125;, false)</div><div class="line">        document.addEventListener(&quot;mousemove&quot;, function(e) &#123;</div><div class="line">            if (isDragging == 1) &#123;</div><div class="line">                console.log(e);</div><div class="line">                console.log(e.clientX + &quot;x&quot;);</div><div class="line">                console.log(e.clientY + &quot;y&quot;);</div><div class="line">                console.log(isDragging);</div><div class="line">                node.style.left = (e.clientX - (node.offsetWidth / 2)) + &quot;px&quot;;</div><div class="line">            &#125;</div><div class="line">        &#125;, false)</div><div class="line">        document.addEventListener(&quot;mouseup&quot;, function(e) &#123;</div><div class="line">            isDragging = undefined;</div><div class="line">            console.log(e);</div><div class="line">        &#125;, false)</div><div class="line">    &#125;</div><div class="line">    draggable(_$(&quot;#slider&quot;));</div><div class="line">    draggable(_$(&quot;#slider2&quot;));</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/拖拽(X轴)/" data-id="cj0tpfbqi001eiod85i8amrxw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/28/字符画/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/在控制台输出不一样的log/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/有时间要实现的几个库/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/用JS更改CSSkeyframes(关键帧)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/移动端字体以及页面大小比例问题/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

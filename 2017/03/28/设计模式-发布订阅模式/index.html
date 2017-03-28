@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="发布订阅模式
+
+典型的例子：JS中的事件，譬如说click事件， 123document.body.addEventListener(&amp;apos;click&amp;apos;,function()&amp;#123;// do sth&amp;#125;)
+ 这里虽然不知道什么用户会在何时点击，但是只要用户点击body节点就会像订阅者发布这个消息，收到消息后便可以执行相关的方法。
+ 除了DOM事件中也可以自己定义发布">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/03/28/设计模式-发布订阅模式/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="发布订阅模式
+
+典型的例子：JS中的事件，譬如说click事件， 123document.body.addEventListener(&amp;apos;click&amp;apos;,function()&amp;#123;// do sth&amp;#125;)
+ 这里虽然不知道什么用户会在何时点击，但是只要用户点击body节点就会像订阅者发布这个消息，收到消息后便可以执行相关的方法。
+ 除了DOM事件中也可以自己定义发布">
+<meta property="og:updated_time" content="2017-03-28T15:28:52.971Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="发布订阅模式
+
+典型的例子：JS中的事件，譬如说click事件， 123document.body.addEventListener(&amp;apos;click&amp;apos;,function()&amp;#123;// do sth&amp;#125;)
+ 这里虽然不知道什么用户会在何时点击，但是只要用户点击body节点就会像订阅者发布这个消息，收到消息后便可以执行相关的方法。
+ 除了DOM事件中也可以自己定义发布">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-设计模式-发布订阅模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/设计模式-发布订阅模式/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.092Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>发布订阅模式</li>
+</ul>
+<p>典型的例子：JS中的事件，譬如说click事件，<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">document.body.addEventListener(&apos;click&apos;,function()&#123;</div><div class="line">// do sth</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p> 这里虽然不知道什么用户会在何时点击，但是只要用户点击body节点就会像订阅者发布这个消息，收到消息后便可以执行相关的方法。</p>
+<p> 除了DOM事件中也可以自己定义发布订阅模式的事件，这种事件可以用于任何JS代码中。<br> 实现发布订阅模式需要三个步骤：</p>
+<ol>
+<li>首先制定发布者。</li>
+<li>给发布者添加一个缓存列表，该列表中存放回调函数用以通知订阅者。</li>
+<li>发布消息时，发布者会遍历缓存列表依次触发订阅者的回调函数通知订阅者。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/设计模式-发布订阅模式/" data-id="cj0tpfbqt001riod8leagsp8b" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/28/拖拽(X轴)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/28/命名规范/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/28/字符画/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/在控制台输出不一样的log/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/有时间要实现的几个库/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/用JS更改CSSkeyframes(关键帧)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/移动端字体以及页面大小比例问题/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

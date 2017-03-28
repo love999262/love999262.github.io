@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="首先实例化WS对象：1var socket = new WebSocket(&amp;apos;ws://echo.websocket.org/&amp;apos;);
+这里的参数必须是ws://或者wss://协议开头的绝对地址当实例化结束后浏览器就会马上尝试创建连接，WS对象和XHR对象类似也有一个表示当前状态的readyState属性，不过含义有所不同：
+12340:正在建立连接。1:已经建立连接。2:正在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/03/28/websocket/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="首先实例化WS对象：1var socket = new WebSocket(&amp;apos;ws://echo.websocket.org/&amp;apos;);
+这里的参数必须是ws://或者wss://协议开头的绝对地址当实例化结束后浏览器就会马上尝试创建连接，WS对象和XHR对象类似也有一个表示当前状态的readyState属性，不过含义有所不同：
+12340:正在建立连接。1:已经建立连接。2:正在">
+<meta property="og:updated_time" content="2017-01-08T21:31:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="首先实例化WS对象：1var socket = new WebSocket(&amp;apos;ws://echo.websocket.org/&amp;apos;);
+这里的参数必须是ws://或者wss://协议开头的绝对地址当实例化结束后浏览器就会马上尝试创建连接，WS对象和XHR对象类似也有一个表示当前状态的readyState属性，不过含义有所不同：
+12340:正在建立连接。1:已经建立连接。2:正在">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-websocket" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/websocket/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.072Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先实例化WS对象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var socket = new WebSocket(&apos;ws://echo.websocket.org/&apos;);</div></pre></td></tr></table></figure></p>
+<p>这里的参数必须是ws://或者wss://协议开头的绝对地址<br>当实例化结束后浏览器就会马上尝试创建连接，WS对象和XHR对象类似也有一个表示当前状态的readyState属性，不过含义有所不同：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">0:正在建立连接。</div><div class="line">1:已经建立连接。</div><div class="line">2:正在关闭连接。</div><div class="line">3:已经关闭连接。</div></pre></td></tr></table></figure>
+<p>如果想要关闭WS连接可以在任何时候调用close()方法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">socket.close();</div></pre></td></tr></table></figure>
+<p>当WS打开之后就可以通过连接发送以及接受数据了，要向服务器发送数据，使用send()方法并传入任意字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">socket.send(&apos;HELLO WORLD!&apos;)</div></pre></td></tr></table></figure></p>
+<p>对于复杂的数据文本建议JSON.stringify后再发送。</p>
+<p>当服务器返回消息的时候，WS对象就会触发message事件，类似于XHR对象的rponseText，返回的消息存放在event参数的data里。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">socket.onmessage = function(event) &#123;</div><div class="line">	var data = event.data;</div><div class="line">	// TODO</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其他事件与注意事项：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- open: 在成功建立连接时触发。</div><div class="line">- error: 在发生错误时候触发，连接不能持续。</div><div class="line">- close: 在连接关闭时触发。</div></pre></td></tr></table></figure></p>
+<p>WS对象只能使用DOM0语法分别定义每个事件的处理程序：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">socket.onopen = function()&#123;</div><div class="line">	//TODO</div><div class="line">&#125;</div><div class="line"></div><div class="line">socket.onerror = function()&#123;</div><div class="line">	//TODO</div><div class="line">&#125;</div><div class="line"></div><div class="line">socket.onclose = function()&#123;</div><div class="line">	//TODO</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在上述事件中只有close事件的event对象有额外信息:wasClean,code,reason.<br>wasClean:布尔类型，表示是否已经明确的关闭。<br>code:服务器返回的状态吗。<br>reason:字符串，包含服务器发回的消息，可以添加到日志中用以分析。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/websocket/" data-id="cj0tpfbqc0016iod88qk8vb4m" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/28/Web安全/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/28/webpack配置/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/28/字符画/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/在控制台输出不一样的log/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/有时间要实现的几个库/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/用JS更改CSSkeyframes(关键帧)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/移动端字体以及页面大小比例问题/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

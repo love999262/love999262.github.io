@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="先看一段代码:
+123456789var o = &amp;#123;  a: &amp;apos;123&amp;apos;,  b: &amp;apos;456&amp;apos;&amp;#125;;var _o = o;_o.a = &amp;apos;onetwothree&amp;apos;;console.log(o); console.log(_o);console.log(o===_o); // true
+问两次输出结果?这里两次输出的结果都">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/03/28/JS中的值传递和引用传递/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="先看一段代码:
+123456789var o = &amp;#123;  a: &amp;apos;123&amp;apos;,  b: &amp;apos;456&amp;apos;&amp;#125;;var _o = o;_o.a = &amp;apos;onetwothree&amp;apos;;console.log(o); console.log(_o);console.log(o===_o); // true
+问两次输出结果?这里两次输出的结果都">
+<meta property="og:updated_time" content="2017-03-28T15:28:52.949Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="先看一段代码:
+123456789var o = &amp;#123;  a: &amp;apos;123&amp;apos;,  b: &amp;apos;456&amp;apos;&amp;#125;;var _o = o;_o.a = &amp;apos;onetwothree&amp;apos;;console.log(o); console.log(_o);console.log(o===_o); // true
+问两次输出结果?这里两次输出的结果都">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JS中的值传递和引用传递" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/JS中的值传递和引用传递/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.019Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先看一段代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var o = &#123;</div><div class="line">  a: &apos;123&apos;,</div><div class="line">  b: &apos;456&apos;</div><div class="line">&#125;;</div><div class="line">var _o = o;</div><div class="line">_o.a = &apos;onetwothree&apos;;</div><div class="line">console.log(o); </div><div class="line">console.log(_o);</div><div class="line">console.log(o===_o); // true</div></pre></td></tr></table></figure>
+<p>问两次输出结果?<br>这里两次输出的结果都是一样的,而且对象也是恒等的,说明这两个对象指向同一处地址.</p>
+<p>再看一段代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var num1 = 5;</div><div class="line">var num2 = num1;</div><div class="line">num2 += 10;</div><div class="line">console.log(num1);// 5</div><div class="line">console.log(num2);// 10</div></pre></td></tr></table></figure></p>
+<p>这里的num1 num2是基本数据类型中的string类型,在进行赋值操作的时候并不会仅仅加个指向,而会在内存中开辟一块新的区间存储新的值,num1和num2所储存的值完全是独立的,而当一个变量向另一个变量赋值引用类型的值得时候仅是添加了一个指针,实际上指针指向的都是同一个对象,对任何指向改地址的变量操作都会改变其他指针指向的变量.</p>
+<ul>
+<li>参数<br>首先明确一点:ES中所有函数的参数都是按值传递的,光看这句话可能有点模糊,看下面的代码:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var count = 20;</div><div class="line">function addTen(num) &#123;</div><div class="line">  num += 10;</div><div class="line">  return num;</div><div class="line">&#125;</div><div class="line">var result = addTen(count);</div><div class="line">console.log(count); // 20</div><div class="line">console.log(addTen(count));// 30</div><div class="line">console.log(count);// 20</div></pre></td></tr></table></figure>
+<p>基本类型不必多说,下面我们来看引用类型:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var o = &#123;</div><div class="line">  a: &apos;123&apos;</div><div class="line">&#125;</div><div class="line">function test(_o) &#123;</div><div class="line">  _o.a = &apos;456&apos;;</div><div class="line">  return _o;</div><div class="line">&#125;</div><div class="line">console.log(o);</div><div class="line">console.log(test(o));</div><div class="line">console.log(o);</div></pre></td></tr></table></figure>
+<p>这里的o.a分别为’123’,’456’,’456’,可以看到,作为参数传入后更改属性后原来的o的属性也跟着改变了,那么是否就可以据此说引用类型的参数是引用传递呢?当然是不能的.<br>继续看一段代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function test(_o) &#123;</div><div class="line">  __o = _o;</div><div class="line">  __o.a = &apos;456&apos;;</div><div class="line">  __o = &#123;&#125;;</div><div class="line">  __o.a = &apos;789&apos;;</div><div class="line">&#125;</div><div class="line">var o = &#123;a: &apos;123&apos;&#125;;</div><div class="line">test(o);</div><div class="line">console.log(o);</div></pre></td></tr></table></figure>
+<p>这里的o.a最终的结果是456,这说明即使在函数内部改变了参数的值,但是原始的引用依然未改变,事实上在函数内部重写obj的时候这个变量的引用就是一个局部对象的,这个局部对象会在函数执行完后被立即销毁.<br>可能上面的例子举得还不是很清楚,看了之后会有点不明白,那么再看下面的额代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var o = &#123;</div><div class="line">    a: &apos;123&apos;</div><div class="line">&#125;</div><div class="line">function test(_o) &#123;</div><div class="line">    _o = 0;</div><div class="line">&#125;</div><div class="line">console.log(o);//a:&apos;123&apos;</div><div class="line">test(o);</div><div class="line">console.log(o);//a:&apos;123&apos;</div></pre></td></tr></table></figure></p>
+<p>在执行完test(o)之后o的值依然没变,不会随着赋值的改变而改变,这是为什么呢,因为这里所谓的’值传递’实际上是将堆内存的内存地址赋值过去,对于对象来说永远存在于堆内存中,变量获取的永远都是对象的堆内存的内存地址,但是参数的传递也永远是值传递的方式来进行的,所以这个传递的值就是内存地址,而对obj内部的任意操作或者改动都会直接改动指针指向的内存地址中的数据,这并不影响他值传递的本质,因为只要不对对象内部进行操作而是直接将对象赋值为新的对象(重新赋值一个新的内存地址)或者赋值为一个新的基本数据类型(直接存放在在栈内存中)都不会影响原来对象的值.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/JS中的值传递和引用传递/" data-id="cj0tpfbpf0008iod86uorobsv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/28/JS中函数执行时的this/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/28/JS与IOS之异步加载问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/28/字符画/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/在控制台输出不一样的log/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/有时间要实现的几个库/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/用JS更改CSSkeyframes(关键帧)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/移动端字体以及页面大小比例问题/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

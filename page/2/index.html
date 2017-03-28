@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-设计模式-发布订阅模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/设计模式-发布订阅模式/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.092Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>发布订阅模式</li>
+</ul>
+<p>典型的例子：JS中的事件，譬如说click事件，<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">document.body.addEventListener(&apos;click&apos;,function()&#123;</div><div class="line">// do sth</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p> 这里虽然不知道什么用户会在何时点击，但是只要用户点击body节点就会像订阅者发布这个消息，收到消息后便可以执行相关的方法。</p>
+<p> 除了DOM事件中也可以自己定义发布订阅模式的事件，这种事件可以用于任何JS代码中。<br> 实现发布订阅模式需要三个步骤：</p>
+<ol>
+<li>首先制定发布者。</li>
+<li>给发布者添加一个缓存列表，该列表中存放回调函数用以通知订阅者。</li>
+<li>发布消息时，发布者会遍历缓存列表依次触发订阅者的回调函数通知订阅者。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/设计模式-发布订阅模式/" data-id="cj0tpfbqt001riod8leagsp8b" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-命名规范" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/命名规范/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.091Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="任何语言都有一套约定俗称的命名规范-比如说以驼峰方式定义方法名-以全部大写的方式定义常量名-这里记录一些"><a href="#任何语言都有一套约定俗称的命名规范-比如说以驼峰方式定义方法名-以全部大写的方式定义常量名-这里记录一些" class="headerlink" title="任何语言都有一套约定俗称的命名规范,比如说以驼峰方式定义方法名,以全部大写的方式定义常量名,这里记录一些."></a>任何语言都有一套约定俗称的命名规范,比如说以驼峰方式定义方法名,以全部大写的方式定义常量名,这里记录一些.</h2><p>==========</p>
+<h3 id="变量名"><a href="#变量名" class="headerlink" title="变量名"></a>变量名</h3><ul>
+<li>一般以驼峰方式的来写</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arrList</div><div class="line">picDir</div></pre></td></tr></table></figure>
+<ul>
+<li>用var声明的变量写在作用域的顶端</li>
+</ul>
+<p>这是指用var声明的变量不想ES6中的let和const那样,它会自动的进行<a href="http://blog.csdn.net/qq673318522/article/details/50810650" target="_blank" rel="external">变量声明提升</a>,这一特性会很有迷惑性,可能会在程序中间发生一些莫名其妙的错误,比如说在同一作用域用var声明的一个变量,在全局作用域下有一个同名的变量,在这个var声明前有一个想要用到全局变量的方法,但是这时候会取到undefined,所以如果是用var声明的变量不如直接写在作用域顶端,避免给自己和后面的人挖坑.</p>
+<ul>
+<li>变量类型透明</li>
+</ul>
+<p>这里是指在写JS等一些弱类型语言的时候因为在声明时并没有定义数据类型,如果光声明一个变量时,但从声明的时候并不能看出你要做什么,或许可以从规范的变量名看出这个变量大概的作用,但是为了方便建议对于声明的时候没有赋值的变量在初始化的时候给他一个该数据类型的值.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var _num = 0;</div><div class="line">var _open = true;</div><div class="line">var _obj = &#123;&#125;;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>私有变量<br>由于ES5中并没有一个强有力的规范来定义私有或者是全局变量,一般来说在一些私有变量前加_来提醒看代码的人这个变量是私有的,其他的地方不要动.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">_private</div></pre></td></tr></table></figure>
+<h3 id="函数名"><a href="#函数名" class="headerlink" title="函数名"></a>函数名</h3><h4 id="同变量名一样-一般以驼峰的方式来写-不过函数名尽量要起的简洁明了-能让人一眼看出你要做什么"><a href="#同变量名一样-一般以驼峰的方式来写-不过函数名尽量要起的简洁明了-能让人一眼看出你要做什么" class="headerlink" title="同变量名一样,一般以驼峰的方式来写,不过函数名尽量要起的简洁明了,能让人一眼看出你要做什么"></a>同变量名一样,一般以驼峰的方式来写,不过函数名尽量要起的简洁明了,能让人一眼看出你要做什么</h4><ul>
+<li>函数名</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">getValue()</div><div class="line">setValue()</div><div class="line">isArr()</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/命名规范/" data-id="cj0tpfbqf001aiod8ss0vw6i9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-解决gulp任务报错跳出的问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/解决gulp任务报错跳出的问题/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.089Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>gulp-plumber<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp-plumber --save-dev</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/解决gulp任务报错跳出的问题/" data-id="cj0tpfbqs001qiod8y2v7d76w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-箭头函数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/箭头函数/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.088Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line"></div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">    var thisTest = &quot;widnow&quot;</div><div class="line">    var Const = function() &#123;</div><div class="line">        this.name = &quot;Const&quot;</div><div class="line">        this.thisTest = &quot;Const&quot;;</div><div class="line">        setInterval(() =&gt; &#123;</div><div class="line">            console.log(this.thisTest);</div><div class="line">        &#125;, 100);</div><div class="line">    &#125;</div><div class="line">    Const.prototype = &#123;</div><div class="line">        arrow: (a) =&gt; &#123;</div><div class="line">            console.log(a + this.name);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    var arrowFuc = (param) =&gt; &#123;</div><div class="line">        console.log(param + &quot;arrowFucs&quot;);</div><div class="line">    &#125;</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/箭头函数/" data-id="cj0tpfbqp001miod83qcuqetf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-兼容的请求关键帧" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/兼容的请求关键帧/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.087Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>网上找的，记录下来方便下次复制<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">window.requestAnimationFrame = (function() &#123;</div><div class="line">    return window.requestAnimationFrame ||</div><div class="line">        window.webkitRequestAnimationFrame ||</div><div class="line">        window.mozRequestAnimationFrame ||</div><div class="line">        window.oRequestAnimationFrame ||</div><div class="line">        window.msRequestAnimationFrame || function(callback) &#123;</div><div class="line">            window.setTimeout(callback, 1000 / 60);</div><div class="line">        &#125;;</div><div class="line">&#125;)();</div><div class="line">window.cancelNextRequestAnimationFrame = (function() &#123;</div><div class="line">    return window.cancelAnimationFrame ||</div><div class="line">        window.webkitCancelAnimationFrame ||</div><div class="line">        window.webkitCancelRequestAnimationFrame ||</div><div class="line">        window.mozCancelRequestAnimationFrame ||</div><div class="line">        window.oCancelRequestAnimationFrame ||</div><div class="line">        window.msCancelRequestAnimationFrame ||</div><div class="line">        clearTimeout;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/兼容的请求关键帧/" data-id="cj0tpfbqf0019iod8xkwt5om4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-技术网站大全" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/技术网站大全/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.086Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p><a href="https://aotu.io/cates/NodeJS/index.html" target="_blank" rel="external">京东凹凸实验室</a> </p>
+</li>
+<li><p><a href="https://github.com/alsotang/node-lessons" target="_blank" rel="external">github上的NodeJs</a> </p>
+</li>
+<li><p><a href="http://cn.vuejs.org/guide/index.html" target="_blank" rel="external">vuejs官网</a> </p>
+</li>
+<li><p><a href="http://webpackdoc.com/" target="_blank" rel="external">webpack</a>　</p>
+</li>
+<li><p><a href="http://blog.csdn.net/leixiaohua1020/article/details/15811977" target="_blank" rel="external">FFMPEG视音频编解码零基础学习方法</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/技术网站大全/" data-id="cj0tpfbql001giod8gv24lbhp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-计算obj类型的length" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/计算obj类型的length/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.085Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">var objContent = function(obj) &#123;</div><div class="line">    var count = 0;</div><div class="line">    if(typeof obj === &apos;object&apos;) &#123;</div><div class="line">        for(var i in obj) &#123;</div><div class="line">            count++;</div><div class="line">        &#125;</div><div class="line">    &#125; else &#123;</div><div class="line">        return &apos;object type parameter only!!!&apos;</div><div class="line">    &#125;</div><div class="line">    return count;</div><div class="line">&#125;;</div><div class="line">var testObj = &#123;</div><div class="line">    one: &apos;1&apos;,</div><div class="line">    two: function()&#123;&#125;,</div><div class="line">    three: 3,</div><div class="line">    four: &#123;_four:&apos;four&apos;&#125;,</div><div class="line">    five: &apos;five&apos;,</div><div class="line">    six:[&apos;six&apos;],</div><div class="line">    seven: null,</div><div class="line">    eight: undefined,</div><div class="line">    nine: NaN</div><div class="line">&#125;;</div><div class="line">console.log(objContent(testObj));</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/计算obj类型的length/" data-id="cj0tpfbr8001siod8j84rk3l5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-获取当前的ID" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/获取当前的ID/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.082Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var frameId = window.frameElement &amp;&amp; window.frameElement.id || &apos;&apos;;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/获取当前的ID/" data-id="cj0tpfbqq001oiod8pl3grwlm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-好网站" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/好网站/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.081Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><a href="http://www.jiadejin.com/shaonv/2016/0830/566.html" target="_blank" rel="external">http://www.jiadejin.com/shaonv/2016/0830/566.html</a></li>
+<li><a href="http://blog.csdn.net/leixiaohua1020/article/details/15811977" target="_blank" rel="external">http://blog.csdn.net/leixiaohua1020/article/details/15811977</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/好网站/" data-id="cj0tpfbqi001diod86jtd5nik" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-格式化之后必装的几个软件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/格式化之后必装的几个软件/" class="article-date">
+  <time datetime="2017-03-28T15:30:10.079Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><ul>
+<li>QQ</li>
+<li>steam</li>
+<li>谷歌浏览器</li>
+<li>网易云音乐</li>
+<li>photoshop</li>
+<li>QQ电脑管家</li>
+</ul>
+<h1 id="编程"><a href="#编程" class="headerlink" title="编程"></a>编程</h1><ul>
+<li>submileText</li>
+<li>webstorm</li>
+<li>IntelliJ IDEA</li>
+<li>java</li>
+<li>python</li>
+<li>source tree</li>
+<li>git</li>
+<li>navicat</li>
+<li>nodeJs</li>
+<li>SSH SECURE SHELL CLIENT</li>
+</ul>
+<p>#游戏</p>
+<ul>
+<li>Steam下的部分</li>
+<li>PSP文件夹中的所有</li>
+<li>GAME文件夹下部分</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/格式化之后必装的几个软件/" data-id="cj0tpfbqo001jiod8y2fy63b2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">__('next') &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/28/字符画/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/在控制台输出不一样的log/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/有时间要实现的几个库/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/用JS更改CSSkeyframes(关键帧)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/移动端字体以及页面大小比例问题/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
